@@ -12,6 +12,7 @@ namespace Client
         private static int cVanBlip;
         private static Ped cVanPed1;
         private static Ped cVanPed2;
+        private static bool eventSpawned;
 
         private static readonly Random random = new Random();
 
@@ -55,6 +56,7 @@ namespace Client
             float targetHeading = 0F;
             API.GetClosestVehicleNodeWithHeading(player.Position.X, player.Position.Y, player.Position.Z, ref targetLocation, ref targetHeading, 1, 3.0F, 0);
             cVanPed1.Task.DriveTo(cVanEntity, targetLocation, 10F, 20F, 262972);
+            eventSpawned = true;
         }
 
         public static async Task<bool> LoadModel(uint model)
